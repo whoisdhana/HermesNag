@@ -1,9 +1,7 @@
 # HermesNag
-#
-# NOTE: the spec says the SSH alias is `oracle-hermes`; it doesn't exist.
-# The real, verified alias is `hermesagent` (see docs/00-discovery.md, C2).
+# Set BOX to your server's ~/.ssh/config alias: make deploy BOX=my-box
 
-BOX      ?= hermesagent
+BOX      ?= hermesnag-server
 APP_DIR  ?= apps/hermes-nag
 PORT     ?= 8787
 PY       := server/.venv/bin/python

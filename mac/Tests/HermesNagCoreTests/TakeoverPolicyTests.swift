@@ -81,7 +81,7 @@ import Foundation
         #expect(none(ledger) == nil)
     }
 
-    /// The daily limit must reset on *Dhana's* midnight, not UTC's.
+    /// The daily limit must reset on the *user's* midnight, not UTC's.
     ///
     /// T0 is 13:00Z = 18:30 IST on Aug 12. Fourteen hours earlier is 23:00Z on
     /// Aug **11** but 04:30 IST on Aug **12** — the same IST day, a different

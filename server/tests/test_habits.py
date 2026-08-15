@@ -297,7 +297,7 @@ def test_habit_requires_name_or_raw(client):
 # --- the 5-minute machine-gun bug ----------------------------------------------
 
 def test_firing_defers_even_after_a_past_completion():
-    """The exact bug Dhana reported as 'notified me every 5 mins'.
+    """The exact bug reported in production as 'notified me every 5 mins'.
 
     `anchor = last_done_at or last_fired_at` preferred the completion even
     when the fire was NEWER — so once a habit had ever been done, showing a
