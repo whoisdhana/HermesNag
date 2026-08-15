@@ -1,0 +1,25 @@
+# Python suites only (server + MCP tool). The Swift suite runs in the local
+# pre-push gate — macOS runners aren't worth it for a single-user app.
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install server deps
+        run: |
+          python -m venv server/.venv
+          server/.venv/bin/pip install -q -e "server[dev]"
+      - name: Server suite
+        run: cd server && .venv/bin/python -m pytest -p no:warnings -q
+      - name: MCP tool suite
+        run: cd hermes-tool && ../server/.venv/bin/python -m pytest test_server.py -p no:warnings -q

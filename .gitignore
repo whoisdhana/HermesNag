@@ -1,0 +1,26 @@
+# Secrets — never commit
+.env
+*.token
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# SQLite (incl. WAL sidecars)
+*.db
+*.db-wal
+*.db-shm
+
+# Swift / Xcode
+.build/
+.swiftpm/
+*.xcodeproj/
+DerivedData/
+
+# macOS
+.DS_Store

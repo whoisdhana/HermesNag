@@ -1,0 +1,35 @@
+# HermesNag task service — systemd --user unit.
+#
+# Installs to ~/.config/systemd/user/hermes-nag.service on the Oracle box.
+# The box already has Linger=yes, so this survives logout.
+#
+# Deliberately additive: it does not touch, order against, or depend on the
+# 7 existing hermes-gateway-* services.
+
+[Unit]
+Description=HermesNag task service (localhost only)
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/apps/hermes-nag
+EnvironmentFile=%h/apps/hermes-nag/.env
+ExecStart=%h/apps/hermes-nag/.venv/bin/python -m app.main
+
+Restart=always
+RestartSec=5
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=hermes-nag
+
+# Hardening. The service only needs its own directory and a loopback socket.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=%h/apps/hermes-nag
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+
+[Install]
+WantedBy=default.target
