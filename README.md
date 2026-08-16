@@ -1,5 +1,11 @@
 # HermesNag 🔔
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Tests](https://github.com/whoisdhana/HermesNag/actions/workflows/tests.yml/badge.svg)](https://github.com/whoisdhana/HermesNag/actions)
+![macOS 14+](https://img.shields.io/badge/macOS-14%2B-blue)
+![Swift](https://img.shields.io/badge/Swift-6-orange)
+![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB)
+
 An agent-powered task, habit and reminder system for people who live at a
 desk. A glanceable macOS desktop widget + iPhone web widget, backed by a tiny
 self-hosted server, with an optional AI agent that creates tasks from your
