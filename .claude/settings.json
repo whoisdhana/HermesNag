@@ -1,0 +1,52 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(./server/.env.example)",
+      "Bash(make venv)",
+      "Bash(make check)",
+      "Bash(make test)",
+      "Bash(make -C mac test)",
+      "Bash(cd server && .venv/bin/python -m pytest:*)",
+      "Bash(cd hermes-tool && ../server/.venv/bin/python -m pytest:*)",
+      "Bash(git diff --check)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./**/.env)",
+      "Read(./**/.env.local)",
+      "Read(./**/.env.*.local)",
+      "Read(./**/.env.production)",
+      "Read(**/*.db)",
+      "Read(**/*.db-wal)",
+      "Read(**/*.db-shm)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(**/staging_token.txt)",
+      "Read(**/secrets/**)",
+      "Read(~/apps/hermes-nag/.env)",
+      "Read(~/apps/hermes-nag-staging/staging_token.txt)",
+      "Read(~/.hermes/.env*)",
+      "Read(~/.hermes/auth.json)",
+      "Read(~/.hermes/profiles/*/.env*)",
+      "Read(~/.hermes/profiles/*/auth.json)",
+      "Read(~/.config/gh/**)",
+      "Read(~/.ssh/**)",
+      "Edit(~/apps/hermes-nag/**)",
+      "Edit(~/apps/hermes-nag-mcp/**)",
+      "Write(~/apps/hermes-nag/**)",
+      "Write(~/apps/hermes-nag-mcp/**)",
+      "Bash(cat .env*)",
+      "Bash(make deploy:*)",
+      "Bash(make restart:*)",
+      "Bash(make install:*)",
+      "Bash(make release:*)",
+      "Bash(systemctl --user restart hermes-nag:*)",
+      "Bash(systemctl --user stop hermes-nag:*)",
+      "Bash(git push origin main:*)",
+      "Bash(gh pr merge:*)"
+    ]
+  }
+}
